@@ -2,7 +2,7 @@ package BlackJackWoo;
 //import java.util.Scanner;
 
 public class Player {
-    //trying to see how git works
+    //hi :)
     private double defaultBank = 1000;
 
     private double blackjackMultiplier = 1.0;
