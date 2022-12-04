@@ -22,7 +22,7 @@ public class Player {
     public double getMult(){
         return blackjackMultiplier;
     }
-    public void setBet(int x){
+    public void setBet(double x){
         
         if(x > bank || bet < 0){
             bet = bank;

@@ -75,9 +75,15 @@ public class Blackjack{
 
                 }
                 //player loses
-                else if(table.getPlayers()[i].getHand().getHandTotal() <= dealer.getDealer().getHand().getHandTotal()){
+                else if(table.getPlayers()[i].getHand().getHandTotal() < dealer.getDealer().getHand().getHandTotal()){
                     System.out.println(table.getPlayers()[i].getName() + " bet $" + table.getPlayers()[i].getBet() + "  and lost $" + table.getPlayers()[i].getBet());
                     System.out.println("(" + table.getPlayers()[i].getName() + ") Bank: $" + table.getPlayers()[i].getBank());
+                }
+                else if(table.getPlayers()[i].getHand().getHandTotal() == dealer.getDealer().getHand().getHandTotal()){
+                    System.out.println(table.getPlayers()[i].getName() + " bet $" + table.getPlayers()[i].getBet() + "  and lost $" + table.getPlayers()[i].getBet());
+                    System.out.println("(" + table.getPlayers()[i].getName() + ") Bank: $" + table.getPlayers()[i].getBank());
+                    table.getPlayers()[i].setBet(table.getPlayers()[i].getBet()/2);
+                    table.getPlayers()[i].payBet();
                 }
             }
 
