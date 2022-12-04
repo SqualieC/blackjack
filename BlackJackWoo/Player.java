@@ -2,7 +2,7 @@ package BlackJackWoo;
 //import java.util.Scanner;
 
 public class Player {
-
+    //trying to see how git works
     private double defaultBank = 1000;
 
     private double blackjackMultiplier = 1.0;
@@ -71,13 +71,14 @@ public class Player {
             int moveNum = 0;
             if(hand.getHandTotal() == 21){
                 hand.printHand();
+                blackjackMultiplier = 1.5;
                 System.out.println("Total value: " + hand.getHandTotal() + " Blackjack!");
+                System.out.println("------------------------------------------------");
                 return;
             }
             while(activeTurn){
                 if(hand.getHandTotal() == 21){
                     activeTurn = false;
-                    blackjackMultiplier = 1.5;
                 }
                 else if(hand.getHandTotal() > 21){
                     //System.out.println("You bust.");

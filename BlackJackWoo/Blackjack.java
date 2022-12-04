@@ -26,15 +26,8 @@ public class Blackjack{
         Table table = new Table();
 
 
-        //Player bob = new Player("bob", 1);
-        //bob.getHand().printHand();
-        
 
-
-
-
-
-        //repeat
+        //repeat this for game
         while(gameInProgress){
             //take bets
             
@@ -78,13 +71,13 @@ public class Blackjack{
                     //if(table.getPlayers()[i])
                     System.out.println(table.getPlayers()[i].getName() + " bet $" + table.getPlayers()[i].getBet() + "  and won $" + (table.getPlayers()[i].getBet() + (table.getPlayers()[i].getBet()*table.getPlayers()[i].getMult())));
                     table.getPlayers()[i].payBet();
-                    System.out.print("(" + table.getPlayers()[i].getName() + ") Bank: $" + table.getPlayers()[i].getBank());
+                    System.out.println("(" + table.getPlayers()[i].getName() + ") Bank: $" + table.getPlayers()[i].getBank());
 
                 }
                 //player loses
                 else if(table.getPlayers()[i].getHand().getHandTotal() <= dealer.getDealer().getHand().getHandTotal()){
                     System.out.println(table.getPlayers()[i].getName() + " bet $" + table.getPlayers()[i].getBet() + "  and lost $" + table.getPlayers()[i].getBet());
-                    System.out.print("(" + table.getPlayers()[i].getName() + ") Bank: $" + table.getPlayers()[i].getBank());
+                    System.out.println("(" + table.getPlayers()[i].getName() + ") Bank: $" + table.getPlayers()[i].getBank());
                 }
             }
 
