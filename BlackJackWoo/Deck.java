@@ -87,14 +87,5 @@ public class Deck{
                 counter++;
             }
         }
-    }
-    
-    /*
-    public void printString(){
-        for(Card[] card: deck){
-            System.out.println(card.toString());
-        }
-    }
-    */
-    
+    } 
 }

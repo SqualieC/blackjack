@@ -1,9 +1,6 @@
 package BlackJackWoo;
 public class Card{
     
-    
-    
-    
     private String cardName = "";
     private String suit = "";
     private int value = 0;
@@ -20,7 +17,6 @@ public class Card{
         value = 0;
     }
     
-    
     public void setName(String x){
         cardName = x;
         
@@ -34,6 +30,7 @@ public class Card{
         suit = y;
         
     }
+
     public String getSuit(){
         return suit;
     }
@@ -48,11 +45,8 @@ public class Card{
         
     }
     
-    
     public String toString(){
         
         return(cardName + " of " + suit + " (" + value + ")");
     }
-    
-    
 }

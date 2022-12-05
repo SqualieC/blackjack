@@ -1,6 +1,6 @@
 package BlackJackWoo;
 //import java.util.Scanner;
-
+import java.util.concurrent.TimeUnit;
 public class Player {
     //hi :)
     private double defaultBank = 1000;
@@ -62,8 +62,7 @@ public class Player {
         return bank;
     }
     
-    public void playTurn(Deck dec, Dealer dealer){
-        //try (Scanner input = new Scanner(System.in)) {
+    public void playTurn(Deck dec, Dealer dealer) throws InterruptedException{
             blackjackMultiplier = 1.0;
             boolean activeTurn = true;
             bust = false;
@@ -81,10 +80,8 @@ public class Player {
                     activeTurn = false;
                 }
                 else if(hand.getHandTotal() > 21){
-                    //System.out.println("You bust.");
                     bust = true;
                     activeTurn = false;
-                    //break;
                 }
                 hand.printHand();
                 System.out.println("Total value: " + hand.getHandTotal());
@@ -92,6 +89,7 @@ public class Player {
                     System.out.println("You bust.");
                     hand.clear();
                     System.out.println("------------------------------------------------");
+                    TimeUnit.SECONDS.sleep(1);
                     break;
                 }
                 System.out.println("------------------------------------------------");
@@ -103,19 +101,17 @@ public class Player {
                     break;
                 }
                 System.out.println(name + " what is your move? [H (Hit) / S (Stand) / D (Double down)"  /*+ " / SP (Split)"*/ + "]");
-                //input.nextLine();
                 while(true){
                     try{
-                        move = Blackjack.in.nextLine();
-                        move.toUpperCase();
+                        move = Blackjack.in.nextLine().toUpperCase();
                         if(move.equals("H") || move.equals("S") || move.equals("D") || move.equals("SP")){
                             break;
                         }
-                        //throw new Exception("Invalid");
                     }
                     catch(Exception e){
                         System.out.println("Invalid response, try again: ");
                     }
+                    System.out.println("------------------------------------------------");
                 }
                 switch (move){
                     case "S":
@@ -130,6 +126,5 @@ public class Player {
                         break;
                 }
             }
-        //}
     }
 }

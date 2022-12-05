@@ -2,7 +2,7 @@ package BlackJackWoo;
 import java.util.Scanner;
 public class Blackjack{
     public static final Scanner in = new Scanner(System.in);
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException{
         
         /*
          * Process:
@@ -29,8 +29,8 @@ public class Blackjack{
 
         //repeat this for game
         while(gameInProgress){
-            //take bets
             
+            //take bets
             for(int i = 0; i < table.getPlayerCount(); i++){
                 int bet = 0;
                 System.out.print("(" + table.getPlayers()[i].getName() + ") Bank: $" + table.getPlayers()[i].getBank() + '\n' + "Enter bet: ");
@@ -54,7 +54,6 @@ public class Blackjack{
             //dealer deals
             dealer.deal(table, deck);
 
-
             //playerTurns
             for(int i = 0; i < table.getPlayerCount(); i++){
                 System.out.println(table.getPlayers()[i].getName() + "'s turn");
@@ -68,17 +67,19 @@ public class Blackjack{
             for(int i = 0; i < table.getPlayerCount(); i++){
                 //player wins
                 if(table.getPlayers()[i].getHand().getHandTotal() > dealer.getDealer().getHand().getHandTotal()){
-                    //if(table.getPlayers()[i])
                     System.out.println(table.getPlayers()[i].getName() + " bet $" + table.getPlayers()[i].getBet() + "  and won $" + (table.getPlayers()[i].getBet() + (table.getPlayers()[i].getBet()*table.getPlayers()[i].getMult())));
                     table.getPlayers()[i].payBet();
                     System.out.println("(" + table.getPlayers()[i].getName() + ") Bank: $" + table.getPlayers()[i].getBank());
 
                 }
+
                 //player loses
                 else if(table.getPlayers()[i].getHand().getHandTotal() < dealer.getDealer().getHand().getHandTotal()){
                     System.out.println(table.getPlayers()[i].getName() + " bet $" + table.getPlayers()[i].getBet() + "  and lost $" + table.getPlayers()[i].getBet());
                     System.out.println("(" + table.getPlayers()[i].getName() + ") Bank: $" + table.getPlayers()[i].getBank());
                 }
+
+                //player/dealer are even
                 else if(table.getPlayers()[i].getHand().getHandTotal() == dealer.getDealer().getHand().getHandTotal()){
                     System.out.println(table.getPlayers()[i].getName() + " bet $" + table.getPlayers()[i].getBet() + "  and lost $" + table.getPlayers()[i].getBet());
                     System.out.println("(" + table.getPlayers()[i].getName() + ") Bank: $" + table.getPlayers()[i].getBank());
@@ -94,12 +95,13 @@ public class Blackjack{
             dealer.getDealer().getHand().clear();
             System.out.println('\n' + "Table Cleared");
             System.out.println("------------------------------------------------");
-            //dealer = new Dealer();
+
             //check for shuffle
             if(deck.needShuffle() == true){
                 deck.fillDeck();
                 deck.shuffle();
             }
+
             //check for poor
             gameInProgress = false;
             for(int i = 0; i < table.getPlayerCount(); i++){
