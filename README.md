@@ -1,2 +1,2 @@
-# blackjack
-it's blackjack
+# Blackjack
+It is blackjack
