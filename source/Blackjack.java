@@ -1,4 +1,4 @@
-package BlackJackWoo;
+package source;
 import java.util.Scanner;
 public class Blackjack{
     public static final Scanner in = new Scanner(System.in);
